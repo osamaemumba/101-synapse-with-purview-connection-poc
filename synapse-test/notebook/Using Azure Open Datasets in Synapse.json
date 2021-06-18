@@ -80,7 +80,7 @@
 					"nyc_tlc = NycTlcGreen(start_date=start_date, end_date=end_date)\n",
 					"nyc_tlc_df = nyc_tlc.to_spark_dataframe()"
 				],
-				"execution_count": 16
+				"execution_count": 1
 			},
 			{
 				"cell_type": "code",
@@ -89,7 +89,7 @@
 					"\n",
 					"nyc_tlc_df.show(5, truncate = False)"
 				],
-				"execution_count": 17
+				"execution_count": 2
 			},
 			{
 				"cell_type": "markdown",
@@ -113,7 +113,7 @@
 					"                .withColumn('hour_of_day',f.hour(nyc_tlc_df.lpepPickupDatetime))\\\n",
 					"                .withColumn('country_code',f.lit('US'))"
 				],
-				"execution_count": 18
+				"execution_count": 3
 			},
 			{
 				"cell_type": "markdown",
@@ -137,7 +137,7 @@
 					"\n",
 					"nyc_tlc_df_clean = nyc_tlc_df_expand.select([column for column in nyc_tlc_df_expand.columns if column not in columns_to_remove])"
 				],
-				"execution_count": 19
+				"execution_count": 4
 			},
 			{
 				"cell_type": "code",
@@ -145,7 +145,7 @@
 					"# Display 5 rows\n",
 					"nyc_tlc_df_clean.show(5)"
 				],
-				"execution_count": 20
+				"execution_count": 5
 			},
 			{
 				"cell_type": "markdown",
@@ -168,7 +168,7 @@
 					"# Display data\n",
 					"hol_df.show(5, truncate = False)"
 				],
-				"execution_count": 21
+				"execution_count": 6
 			},
 			{
 				"cell_type": "markdown",
@@ -184,7 +184,7 @@
 					"\n",
 					"hol_df_clean.show(5)"
 				],
-				"execution_count": 22
+				"execution_count": 7
 			},
 			{
 				"cell_type": "markdown",
@@ -200,7 +200,7 @@
 					"\n",
 					"nyc_taxi_holiday_df.show(5)"
 				],
-				"execution_count": 23
+				"execution_count": 8
 			},
 			{
 				"cell_type": "code",
@@ -210,7 +210,7 @@
 					"nyc_taxi_holiday_df.createOrReplaceTempView(\"nyc_taxi_holiday_df\")\n",
 					"spark.sql(\"SELECT * from nyc_taxi_holiday_df WHERE holidayName is NOT NULL \").show(5, truncate = False)"
 				],
-				"execution_count": 24
+				"execution_count": 9
 			},
 			{
 				"cell_type": "markdown",
