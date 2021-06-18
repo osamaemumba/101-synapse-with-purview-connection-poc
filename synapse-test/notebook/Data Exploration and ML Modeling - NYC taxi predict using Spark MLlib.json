@@ -32,18 +32,18 @@
 				"name": "python"
 			},
 			"a365ComputeOptions": {
-				"id": "/subscriptions/4eeedd72-d937-4243-86d1-c3982a84d924/resourceGroups/nashahzmcrpoc2/providers/Microsoft.Synapse/workspaces/mcr2y6mvs2vdx32zipocws1/bigDataPools/ws1sparkpool1",
+				"id": "/subscriptions/4eeedd72-d937-4243-86d1-c3982a84d924/resourceGroups/nashahzsynapsepocwnb/providers/Microsoft.Synapse/workspaces/mcrnbk4ttrdhet54jqpocws1/bigDataPools/ws1sparkpool1",
 				"name": "ws1sparkpool1",
 				"type": "Spark",
-				"endpoint": "https://mcr2y6mvs2vdx32zipocws1.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/ws1sparkpool1",
+				"endpoint": "https://mcrnbk4ttrdhet54jqpocws1.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/ws1sparkpool1",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
 				},
 				"sparkVersion": "2.4",
 				"nodeCount": 5,
-				"cores": 4,
-				"memory": 28,
+				"cores": 8,
+				"memory": 56,
 				"automaticScaleJobs": false
 			},
 			"sessionKeepAliveTimeout": 30
@@ -56,6 +56,7 @@
 					"\n",
 					"The notebook ingests, visualizes, prepares and then trains a model based on an Open Dataset that tracks NYC Yellow Taxi trips and various attributes around them.\n",
 					"The goal is to predict for a given trip whether there will be a trip or not.\n",
+					"https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-machine-learning-mllib-notebook\n",
 					""
 				]
 			},
@@ -292,7 +293,7 @@
 					"metrics = BinaryClassificationMetrics(predictionAndLabels)\n",
 					"print(\"Area under ROC = %s\" % metrics.areaUnderROC)"
 				],
-				"execution_count": 11
+				"execution_count": 18
 			},
 			{
 				"cell_type": "markdown",
@@ -316,7 +317,7 @@
 					"plt.ylabel('True Positive Rate')\n",
 					"plt.show()"
 				],
-				"execution_count": 12
+				"execution_count": 19
 			}
 		]
 	}
