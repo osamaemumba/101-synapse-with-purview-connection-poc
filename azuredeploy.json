@@ -255,11 +255,11 @@
         }
     },
     "workspaceID": {
-				"type": "string"
+	"type": "string",
         "metadata": {
           "description": "Power BI Workspace name"
         }
-			}
+	}
   },
   "variables": {
     "deploymentType": "poc",
