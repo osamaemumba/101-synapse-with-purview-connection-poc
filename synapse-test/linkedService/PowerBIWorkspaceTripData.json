@@ -1,11 +1,6 @@
 {
 	"name": "PowerBIWorkspaceTripData",
 	"properties": {
-		"parameters": {
-			"POCworkspaceID": {
-			"type": "string"
-			}			
-		},
 		"annotations": [],
 		"type": "PowerBIWorkspace",
 		"typeProperties": {
