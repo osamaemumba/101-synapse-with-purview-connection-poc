@@ -259,7 +259,7 @@
         "metadata": {
           "description": "Power BI Workspace name"
         }
-	
+    }
   },
   "variables": {
     "deploymentType": "poc",
