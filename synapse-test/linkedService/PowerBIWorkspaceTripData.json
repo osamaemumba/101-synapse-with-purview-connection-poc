@@ -8,7 +8,6 @@
 			}			
 		},
 		"annotations": [],
-		"annotations": [],
 		"type": "PowerBIWorkspace",
 		"typeProperties": {
 			"workspaceID":  "@linkedService().workspaceID",
