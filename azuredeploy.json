@@ -253,7 +253,13 @@
         "metadata": {
           "description": "Username of your github account hosting synapse workspace resources"
         }
-    }
+    },
+    "workspaceID": {
+				"type": "string"
+        "metadata": {
+          "description": "Power BI Workspace name"
+        }
+			}
   },
   "variables": {
     "deploymentType": "poc",
