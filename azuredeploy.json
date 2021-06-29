@@ -450,7 +450,7 @@
       "dependsOn": [
         "[variables('dlsName')]",
         "[variables('dlsFsName')]",
-        "[variables('purviewName')]"
+        "[variables('purviewDeployment')]"
       ],
       "properties": {
         "defaultDataLakeStorage": {
