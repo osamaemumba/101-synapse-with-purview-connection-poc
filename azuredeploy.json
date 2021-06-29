@@ -245,7 +245,7 @@
     },
     "purviewName": {
         "type": "string",
-        "defaultValue": "[concat('/subscriptions/',subscription().id,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Purview/accounts/<purviewAccountName>')]",
+        "defaultValue": "[/subscriptions/subscription().id/resourceGroups/resourceGroup().name/providers/Microsoft.Purview/accounts/<purviewAccountName>]",
         "metadata": {
           "description": "Provide the purview account ID as: /subscriptions/<subscriptionID>/resourceGroups/resourceGroup().name/providers/Microsoft.Purview/accounts/<purviewAccountName>"
         }
