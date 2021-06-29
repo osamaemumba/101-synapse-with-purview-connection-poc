@@ -242,12 +242,6 @@
         "metadata": {
           "description": "Username of your github account hosting synapse workspace resources"
         }
-    },
-    "purviewName": {
-        "type": "string",
-        "metadata": {
-          "description": "Provide the purview account"
-        }
     }
   },
   "variables": {
@@ -261,7 +255,7 @@
     "workspaceName": "[toLower(concat(variables('synapseName'),'ws1'))]",
     "sparkPoolName": "[toLower('ws1sparkpool1')]",
     "keyVaultName": "[toLower(concat('kv',parameters('companyTla'),uniquestring(resourceGroup().id),variables('deploymentType')))]",
-    "purviewName": "[toLower(concat(parameters('purviewName'),uniquestring(resourceGroup().id)))]",
+    "purviewName": "[toLower(concat(parameters('companyTla'),uniquestring(resourceGroup().id),variables('deploymentType')))]",
     "purviewId": "[concat('/subscriptions/',subscription().id,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Purview/accounts/',variables('purviewName'))]",
     "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', variables('dlsName'))]",
     "logicApps": [
