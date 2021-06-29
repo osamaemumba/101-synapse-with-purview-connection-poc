@@ -243,10 +243,11 @@
           "description": "Username of your github account hosting synapse workspace resources"
         }
     },
-    "purviewAccountId": {
+    "purviewName": {
         "type": "string",
+        "defaultValue": "[concat('/subscriptions/',subscription().id,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Purview/accounts/<purviewAccountName>')]",
         "metadata": {
-          "description": "Provide the purview account ID as: /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Purview/accounts/<purviewAccountName>"
+          "description": "Provide the purview account ID as: /subscriptions/<subscriptionID>/resourceGroups/resourceGroup().name/providers/Microsoft.Purview/accounts/<purviewAccountName>"
         }
     }
   },
@@ -261,6 +262,7 @@
     "workspaceName": "[toLower(concat(variables('synapseName'),'ws1'))]",
     "sparkPoolName": "[toLower('ws1sparkpool1')]",
     "keyVaultName": "[toLower(concat('kv',parameters('companyTla'),uniquestring(resourceGroup().id),variables('deploymentType')))]",
+    "purviewName": "[toLower(concat(parameters('purviewName'),uniquestring(resourceGroup().id)))]",
     "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', variables('dlsName'))]",
     "logicApps": [
       "SynapsePauseSchedule",
@@ -268,6 +270,25 @@
     ]
   },
   "resources": [
+    {
+      "name": "purviewDeployment",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2018-05-01",
+      "properties": {
+        "mode": "Incremental",
+        "templatelink": {
+          "uri": "[uri(variables('_artifactsLocation'), concat('nestedtemplates/purviewaccount.json'))]"
+        },
+        "parameters": {
+            "location": {
+                "value": "[variables('location')]"
+            },
+            "purviewName": {
+                "value": "[variables('purviewName')]"
+            }
+        }
+      }
+    },
     {
       "name": "keyVaultDeployment",
       "type": "Microsoft.Resources/deployments",
@@ -428,7 +449,8 @@
       },
       "dependsOn": [
         "[variables('dlsName')]",
-        "[variables('dlsFsName')]"
+        "[variables('dlsFsName')]",
+        "[variables('purviewName')]"
       ],
       "properties": {
         "defaultDataLakeStorage": {
