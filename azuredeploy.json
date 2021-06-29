@@ -436,7 +436,7 @@
           "type": "WorkspaceGitHubConfiguration",
           "hostName": "https://github.com",
           "accountName": "[parameters('githubUsername')]",
-          "repositoryName": "101-synapse-poc",
+          "repositoryName": "synapse-purview-connection-poc",
           "rootFolder": "/synapsepoc",
           "collaborationBranch": "main"
         }
