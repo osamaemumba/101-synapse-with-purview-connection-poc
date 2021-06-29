@@ -242,6 +242,12 @@
         "metadata": {
           "description": "Username of your github account hosting synapse workspace resources"
         }
+    },
+    "purviewAccountId": {
+        "type": "string",
+        "metadata": {
+          "description": "Provide the purview account ID as: /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Purview/accounts/<purviewAccountName>"
+        }
     }
   },
   "variables": {
@@ -439,7 +445,11 @@
           "repositoryName": "synapse-purview-connection-poc",
           "rootFolder": "/synapsepoc",
           "collaborationBranch": "main"
-        }
+        },
+        "purviewConfiguration": {
+            "purviewResourceId": "[parameters('purviewAccountId')]"
+        },
+        "publicNetworkAccess": "Enabled"
       },
       "resources": [
         {
