@@ -469,7 +469,7 @@
           "collaborationBranch": "main"
         },
         "purviewConfiguration": {
-            "purviewResourceId": "[parameters('purviewId')]"
+            "purviewResourceId": "[variables('purviewId')]"
         },
         "publicNetworkAccess": "Enabled"
       },
