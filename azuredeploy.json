@@ -245,9 +245,8 @@
     },
     "purviewName": {
         "type": "string",
-        "defaultValue": "[/subscriptions/subscription().id/resourceGroups/resourceGroup().name/providers/Microsoft.Purview/accounts/<purviewAccountName>]",
         "metadata": {
-          "description": "Provide the purview account ID as: /subscriptions/<subscriptionID>/resourceGroups/resourceGroup().name/providers/Microsoft.Purview/accounts/<purviewAccountName>"
+          "description": "Provide the purview account"
         }
     }
   },
@@ -263,6 +262,7 @@
     "sparkPoolName": "[toLower('ws1sparkpool1')]",
     "keyVaultName": "[toLower(concat('kv',parameters('companyTla'),uniquestring(resourceGroup().id),variables('deploymentType')))]",
     "purviewName": "[toLower(concat(parameters('purviewName'),uniquestring(resourceGroup().id)))]",
+    "purviewId": "[concat('/subscriptions/',subscription().id,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Purview/accounts/',variables('purviewName'))]",
     "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', variables('dlsName'))]",
     "logicApps": [
       "SynapsePauseSchedule",
@@ -469,7 +469,7 @@
           "collaborationBranch": "main"
         },
         "purviewConfiguration": {
-            "purviewResourceId": "[parameters('purviewAccountId')]"
+            "purviewResourceId": "[parameters('purviewId')]"
         },
         "publicNetworkAccess": "Enabled"
       },
